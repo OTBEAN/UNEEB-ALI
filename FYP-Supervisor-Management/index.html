@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FYP Supervisor Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+      /* Custom animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .hover-scale {
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="p-4 bg-gradient-to-r from-blue-50 to-purple-50">
+    <h1 class="text-3xl font-bold mb-4 text-center text-blue-800 fade-in">
+      FYP Supervisor Management
+    </h1>
+
+    <!-- Filter Section -->
+    <div class="mb-8 p-6 bg-white rounded-lg shadow-md fade-in hover-scale">
+      <div class="flex flex-wrap gap-4">
+        <input
+          type="text"
+          id="domain-filter"
+          placeholder="Research Domain"
+          class="p-3 border border-gray-300 rounded-lg flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Filter by research domain"
+        />
+        <input
+          type="number"
+          id="slots-filter"
+          placeholder="Minimum Slots"
+          class="p-3 border border-gray-300 rounded-lg flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Filter by minimum available slots"
+        />
+      </div>
+      <div class="flex gap-4 mt-4">
+        <button
+          id="filter-button"
+          class="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 hover-scale"
+        >
+          Filter
+        </button>
+        <button
+          id="reset-button"
+          class="p-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 hover-scale"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="hidden mb-4 text-center fade-in">
+      <p class="text-gray-600">Loading supervisors...</p>
+    </div>
+
+    <!-- Supervisors List -->
+    <div id="supervisor-list" class="space-y-4"></div>
+
+    <!-- Bookmarked Supervisors Section -->
+    <div class="mt-12 p-6 bg-white rounded-lg shadow-md fade-in hover-scale">
+      <h2 class="text-2xl font-bold mb-6 text-blue-800">Bookmarked Supervisors</h2>
+      <div id="bookmarked-list" class="space-y-4"></div>
+    </div>
+
+    <!-- Include JavaScript as a module -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
